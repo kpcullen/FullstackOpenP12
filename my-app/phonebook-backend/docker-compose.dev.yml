@@ -1,0 +1,14 @@
+services:
+  server:
+    container_name: phonebook-backend-dev
+    image: phonebook-backend-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/user/src/app
+    ports:
+      - 3001:3001
+    environment:
+      - MONGO_URL=${MONGODB_URI}
+    command: ['npm', 'run', 'dev']

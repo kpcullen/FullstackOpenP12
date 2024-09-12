@@ -1,0 +1,16 @@
+name: Periodic Health Check
+
+on:
+  schedule:
+    - cron: '35 * * * *'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v4
+        with:
+          url: https://fullstackopenp11.onrender.com/
+          max-attempts: 3
+          retry-delay: 10s

@@ -1,0 +1,45 @@
+Script started on Tue Sep 10 22:50:00 2024
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$  MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database  npm run dev
+[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mcode[0m ENOENT
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35msyscall[0m open
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mpath[0m /Users/kevin/Desktop/part12-containers-applications/package.json
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35merrno[0m -2
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m Could not read package.json: Error: ENOENT: no such file or directory, open '/Users/kevin/Desktop/part12-containers-applications/package.json'
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m This is related to npm not being able to find a file.
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m 
+[0m
+[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m A complete log of this run can be found in: /Users/kevin/.npm/_logs/2024-09-10T20_50_03_262Z-debug-0.log
+[0mbash-3.2$ ls
+hello-world-app	script-answers	todo-app	typescript
+bash-3.2$ cd todo-app
+bash-3.2$  MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database  npm run dev
+[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mcode[0m ENOENT
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35msyscall[0m open
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mpath[0m /Users/kevin/Desktop/part12-containers-applications/todo-app/package.json
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35merrno[0m -2
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m Could not read package.json: Error: ENOENT: no such file or directory, open '/Users/kevin/Desktop/part12-containers-applications/todo-app/package.json'
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m This is related to npm not being able to find a file.
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m 
+[0m
+[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m A complete log of this run can be found in: /Users/kevin/.npm/_logs/2024-09-10T20_50_35_400Z-debug-0.log
+[0mbash-3.2$  MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database  npm run dev[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+bash-3.2$ MONGO_URL=mongodb://the_username:the_password@localhostl:3456[K[K[K[K[K[K:3456/the_database  npm [K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K
+bash-3.2$ exit
+exit
+
+Script done on Tue Sep 10 22:52:42 2024
+O_URL=mongodb://the_username:the_password@localhost:3456/the_database  npm run dev[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+bash-3.2$ MONGO_URL=mongodb://the_username:the_password@localhostl:3456[K[K[K[K[K[K:3456/the_database  npm [K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K
+bash-3.2$ exit
+exit
+
+Script done, output file is typescript
+bash-3.2$ 

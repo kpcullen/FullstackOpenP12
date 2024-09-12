@@ -1,0 +1,35 @@
+services:
+  phonebook-frontend:
+    image: phonebook-frontend
+    build:
+      context: ./phonebook-frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./phonebook-frontend/:/usr/src/app
+    environment:
+      - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+    ports:
+      - 5173:5173
+
+  phonebook-backend:
+    image: phonebook-backend
+    build:
+      context: ./phonebook-backend
+    command: ['npm', 'run', 'dev']
+    volumes:
+      - ./phonebook-backend/:/usr/src/app
+    ports:
+      - 3001:3001
+    environment:
+      - MONGO_URL=${MONGODB_URI}
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - phonebook-frontend
+      - phonebook-backend

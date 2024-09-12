@@ -1,0 +1,83 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+env:
+  SKIP_DEPLOYMENT: ${{ contains(join(github.events.commits.*.message, ' '), '#skip') }}
+
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install backend dependencies
+        run: npm install
+
+      - name: Install frontend dependencies
+        run: npm run install-frontend
+
+      - name: Check style
+        run: npm run lint
+
+      - name: Build production code
+        run: npm run build
+
+      - name: Run tests
+        run: npm run test
+
+      - name: install playwright
+        run: npx playwright install --with-deps
+
+      - name: start backend
+        run: npm run start &
+        env:
+          PORT: ${{secrets.PORT}}
+          MONGODB_URI: ${{secrets.MONGODB_URI}}
+
+      - name: Run Playwright tests
+        run: npm run test:e2e
+
+      - name: Trigger deployment
+        if: ${{ github.event_name == 'push' && env.SKIP_DEPLOYMENT == 'false' }}
+        run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+
+      - name: Discord Notify Success
+        env:
+          DISCORD_WEBHOOK: ${{secrets.DISCORD_WEBHOOK}}
+        if: success()
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'Project: ${{github.repository}} has been deployed'
+
+      - name: Discord Notify Failure
+        env:
+          DISCORD_WEBHOOK: ${{secrets.DISCORD_WEBHOOK}}
+        if: failure()
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'There was a problem with commit: ${{ github.sha }} in repo: ${{ github.repository }}'
+
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    if: ${{ github.event_name == 'push' && !github.env.SKIP_DEPLOYMENT}}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@777684df761b882a3f4f70db16ac70d8cc78d0ea
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
